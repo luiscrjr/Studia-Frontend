@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="../assets/images/favicon-85x100-1.png" type="image/x-icon">
   <meta name="description" content="Web Builder Description">
-  <title>StudiaTech - Home</title>
+  <title>StudiaTech - Cursos</title>
   <link rel="stylesheet" href="../assets/web/assets/prime-icons/prime-icons.css">
   <link rel="stylesheet" href="../assets/tether/tether.min.css">
   <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
@@ -188,8 +188,9 @@
                             Assuntos
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item text-secondary display-4 submenu" href="#"><span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>Pesquisar assuntos</a>
-                            <a class="dropdown-item text-secondary display-4 submenu" href="#" aria-expanded="false"><span class="mbri-plus mbr-iconfont mbr-iconfont-btn"></span>Criar um novo assunto</a>
+                            <a class="dropdown-item text-secondary display-4 submenu"  data-toggle="modal" data-target="#PesquisaAssuntoModal" aria-expanded="false"><span class="mbri-search mbr-iconfont mbr-iconfont-btn"></span>Pesquisar assuntos</a>
+                            <a class="dropdown-item text-secondary display-4 submenu" data-toggle="modal" data-target="#CadastroAssuntoModal" aria-expanded="false"><span class="mbri-plus mbr-iconfont mbr-iconfont-btn"></span>Criar um novo assunto</a>
+                            
                         </div>
                     </li>
                     <li class="nav-item">
@@ -445,6 +446,56 @@
 </div>
 </div>
 
+<div id="PesquisaAssuntoModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <center><h3>Pesquisar Assunto</h3></center>
+            <button type="button" class="close" data-dismiss="modal"> &times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">  
+                    <form method="POST" action="/cursos">
+                        <input type="text" id="assuntoPesquisa" class="form-control" placeholder="Assunto" required>
+                        <br>
+                        <input type="submit" id="PesquisaAssuntoButton" class="btn btn-primary btn-block" value="Pesquisar" style="margin:0px;">
+                    </form>
+                </div>
+            </div>
+                                
+                        <div class="modal-footer">
+                            <div style="padding:10px"></div>
+                        </div>
+           
+        </div>
+    </div>
+</div>
+
+<div id="CadastroAssuntoModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <center><h3>Cadastro de novo Assunto</h3></center>
+            <button type="button" class="close" data-dismiss="modal"> &times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">  
+                    <form method="POST" action="/cursos">
+                        <input type="text" id="assuntoCadastro" class="form-control" placeholder="Assunto" required>
+                        <br>
+                        <input type="submit" id="cadastroButton" class="btn btn-primary btn-block" value="Cadastrar" style="margin:0px;">
+                    </form>
+                </div>
+            </div>
+                                
+                        <div class="modal-footer">
+                            <div style="padding:10px"></div>
+                        </div>
+           
+        </div>
+    </div>
+</div>
+
     <!-- Fim do corpo -->    
 
     <section class="cid-qSgoZc68Wc" id="footer1-17" style="padding-top: 0 !important;">
@@ -535,7 +586,44 @@
     $(".mbr-iconfont-btn").click(function(){
         startToast("Favorito adicionado com sucesso!");
     })
+    $("#cadastroButton").click(function(){
+        startToast("Assunto cadastrado com sucesso!");
+    })
     </script>
+
+<script type="text/javascript">
+
+    $("#assuntoCadastro").keyup(function(){
+        var assunto = $("#assuntoCadastro").val();
+        localStorage.setItem("assuntoCadastro", assunto);
+    }) 
+
+    $("#assuntoPesquisa").keyup(function(){
+        var pesquisa = $("#assuntoPesquisa").val();
+        localStorage.setItem("cursoSearch", pesquisa);
+    }) 
+
+    $("#assuntoPesquisa").click(function(){
+        $("#cursoSearch").val(localStorage.getItem("cursoSearch"));
+
+    })
+
+    $(document).ready(function(){
+        $("#cursoSearch").val(localStorage.getItem("cursoSearch"));
+        $("#cursoSearch").keyup();
+        localStorage.setItem("cursoSearch", "");
+    })
+    
+    $(document).ready(function(){
+        if(localStorage.getItem("assuntoCadastro") != null){
+            startToast("Curso adicionado com sucesso!");
+        }
+    })
+
+
+</script>
+
+
 
 
     <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i></i></a></div>
