@@ -110,7 +110,10 @@
         .review {
             margin-bottom: 5px;
             padding-top:5px;
-        }        
+        }
+        .modal .modal-dialog {
+             width: 80% !important; 
+        }         
     </style>
   
 </head>
@@ -630,11 +633,19 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">  
-                                            <form method="POST" action="/cursos">
                                                 <input type="text" id="assuntoPesquisa" class="form-control" placeholder="Assunto" required>
                                                 <br>
                                                 <input type="submit" id="PesquisaAssuntoButton" class="btn btn-primary btn-block" value="Pesquisar" style="margin:0px;">
-                                            </form>
+                                                <div class="form-group">  
+                                                    <form method="POST" action="/cursos">
+                                                        <input type="email" id="emailCadastro" class="form-control" placeholder="E-mail" required>
+                                                        <br>
+                                                        <input type="text" id="userCadastro" class="form-control" placeholder="Usuário desejado" required>
+                                                        <br>
+                                                        <br>
+                                                        <input type="submit" id="cadastroButton" class="btn btn-primary btn-block" value="Entrar" style="margin:0px;">
+                                                    </form>
+                                                </div>
                                         </div>
                                     </div>
                                                         
