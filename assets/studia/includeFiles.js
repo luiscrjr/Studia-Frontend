@@ -17,6 +17,10 @@
               /*remove the attribute, and call this function once more:*/
               elmnt.removeAttribute("w3-include-html");
               includeHTML();
+
+              //Inserir nome de usuário
+              var userAtual = localStorage.getItem("username");
+              $("#usuarioAtual").text(userAtual);
             }
           }
           xhttp.open("GET", file, true);
@@ -26,4 +30,3 @@
         }
       }
     }
-    
