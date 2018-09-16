@@ -235,7 +235,7 @@
             <br><br>
             <a style="color:blue">&nbsp;&nbsp;&nbsp;Próxima aula &nbsp;&nbsp;&nbsp;<span class="mbri-right mbr-iconfont mbr-iconfont-btn"></span></a>
             </div>
-            <div class="col-md-9"> 
+            <div class="col-md-7"> 
                     <div class="right-content-bg">
                         <h3>Lorem ipsum dolor sit amet</h3>
                         
@@ -243,9 +243,13 @@
 
                         </div>
                         <br><br><br>
+
+                        <!-- Conteúdo perguntas -->
+
+                        <!--
                         <input type="text" class="form-control" placeholder="Digite aqui a sua pergunta">
                         <input type="button" class="btn btn-primary" value="Enviar" onclick="">
-                        <br><br>
+                         <br><br>
                         <div class="container">
                             <div class="row">
                             Perguntas anteriores
@@ -311,8 +315,27 @@
                                    </div>
                                    </div>
                             </div>
-                            </div>
+                            </div> -->
                     </div>
+            </div>
+            <div class="col-md-1">
+                <div class="utilIcons">
+                    &nbsp; <a class="inutil"><span class="mbri-sad-face mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span>
+                                <br>
+                                <span>Não útil</span>
+                            </a>
+                    
+                    
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="utilIcons">
+                    <a class="util"><span class="mbri-smile-face mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span>
+                        <br>
+                        &nbsp;<span>Útil</span>
+                    </a>                   
+                    
+                </div>
             </div>
         </div>  
 
@@ -413,7 +436,7 @@
             startToast("Essa pergunta foi marcada como útil!");
         })
         $(".inutil").click(function(){
-            startToast("Essa pergunta foi marcada como inútil!");
+            startToast("Essa pergunta foi marcada como não útil!");
         })
 
     </script>
