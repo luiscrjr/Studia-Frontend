@@ -5,23 +5,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="../assets/images/favicon-85x100-1.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../../../../assets/images/favicon-85x100-1.png" type="image/x-icon">
   <meta name="description" content="Web Builder Description">
-  <title>StudiaTech - Cursos</title>
-  <link rel="stylesheet" href="../assets/web/assets/prime-icons/prime-icons.css">
-  <link rel="stylesheet" href="../assets/tether/tether.min.css">
-  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="../assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="../assets/animatecss/animate.min.css">
-  <link rel="stylesheet" href="../assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="../assets/theme/css/style.css">
-  <link rel="stylesheet" href="../assets/prime/css/mbr-additional.css" type="text/css">
+  <title>StudiaTech - Home</title>
+  <link rel="stylesheet" href="../../assets/web/assets/prime-icons/prime-icons.css">
+  <link rel="stylesheet" href="../../assets/tether/tether.min.css">
+  <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="../../assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="../../assets/animatecss/animate.min.css">
+  <link rel="stylesheet" href="../../assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="../../assets/theme/css/style.css">
+  <link rel="stylesheet" href="../../assets/prime/css/mbr-additional.css" type="text/css">
   
-  <link rel="stylesheet" type="text/css" href="../assets/prime/css/3.3.7.bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/prime/css/3.3.7.bootstrap.min.css">
   <!--<link rel="stylesheet" type="text/css" href="assets/prime/css/font-awesome.min.css">-->
-  <link rel="stylesheet" type="text/css" href="../assets/web-fonts-with-css/css/fontawesome-all.min.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/web-fonts-with-css/css/fontawesome-all.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
@@ -110,57 +110,18 @@
         .review {
             margin-bottom: 5px;
             padding-top:5px;
-        }        
-        #toast {
-            visibility: hidden;
-            min-width: 250px;
-            margin-left: -125px;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            border-radius: 2px;
-            padding: 16px;
-            position: fixed;
-            z-index: 1;
-            left: 50%;
-            bottom: 30px;
-            font-size: 17px;
         }
-        #toast.show {
-            visibility: visible;
-            -webkit-animation: fadein 0.5s, fadeout 0.5s 5.5s;
-            animation: fadein 0.5s, fadeout 0.5s 5.5s;
-        }
-
-        @-webkit-keyframes fadein {
-            from {bottom: 0; opacity: 0;} 
-            to {bottom: 30px; opacity: 1;}
-        }
-
-        @keyframes fadein {
-            from {bottom: 0; opacity: 0;}
-            to {bottom: 30px; opacity: 1;}
-        }
-
-        @-webkit-keyframes fadeout {
-            from {bottom: 30px; opacity: 1;} 
-            to {bottom: 0; opacity: 0;}
-        }
-
-        @keyframes fadeout {
-            from {bottom: 30px; opacity: 1;}
-            to {bottom: 0; opacity: 0;}
-        }
-        #mantemUsuarioModal {left:-5%; width: 100vw !important; } 
-        .modal-content { width: 50vw !important; } 
+        .modal .modal-dialog {
+             width: 80% !important; 
+        }         
     </style>
   
 </head>
 <body>
 
     <!-- MENU -->
-
-    <div w3-include-html="../assets/includes/menu.html"></div> 
+    
+    <div w3-include-html="../../../assets/includes/menu.html"></div> 
 
     <!-- MENU -->
     <!-- Corpo -->
@@ -168,30 +129,37 @@
     <div class="panel panel-default">
         <div class="panel-heading c-list">
             <div class="row">
-                <div class="col-sm-3 col-sm-offset-4">
-                    <span class="title"><h3>Lista de Cursos</h3></span>
+                <div class="col-sm-4 col-sm-offset-1">
+                    <span class="title"><h3>Painel de manutenção de cursos</h3></span>
                 </div>
-                <div class="col-sm-4 col-sm-offset-1 form-inline" style="padding-top:10px;">
-                    <input type="text" id="cursoSearch" class="form-control" placeholder="Pesquise pelo assunto">
+                <div class="col-sm-2 col-sm-offset-1 form-inline" style="padding-top:10px;">
+                        <a class="btn btn-sm btn-primary display-4" id="exibeCursoButton">
+                                <span class="mbri-plus mbr-iconfont mbr-iconfont-btn"></span>
+                                Criar Curso
+                        </a>
+                </div>
+                <div class="col-sm-3 form-inline" style="padding-top:10px;">
+                    <input type="text" id="cursoedit2" class="form-control" placeholder="Pesquise por assunto">
                 </div>
             </div>
         </div>                
         <div class="row" style="display: none;">
             <div class="col-xs-12">
-                <div class="input-group c-search">
-                    <input type="text" class="form-control" id="contact-list-search">
+                <div class="input-group c-edit2">
+                    <input type="text" class="form-control" id="contact-list-edit2">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search text-muted"></span></button>
+                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-edit2 text-muted"></span></button>
                     </span>
                 </div>
             </div>
         </div>
+        <div id="listaCursos" class="hidden">
         <ul class="list-group" id="contact-list">
 
-            <li class="list-group-item" id="1">
+                <li class="list-group-item" id="1">
                     <div class="col-xs-12 col-sm-3">
                         <br/>
-                        <img style="width: 20%; height: auto; border-radius: 10px" src="../assets/images/cursos/cursos.png"/>
+                        <img style="width: 20%; height: auto; border-radius: 10px" src="../../assets/images/cursos/cursos.png"/>
                     </div>
                     <div class="col-xs-12 col-sm-7">
                     <br>
@@ -203,8 +171,9 @@
                     </div>
                     <div class="col-xs-12 col-sm-2">
                     <br><br>
-                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-search mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
-                    <!-- &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" data-toggle="tooltip" data-placement="top" ><span class="mbri-hearth mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a> -->
+                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-edit2 mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-trash mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+                    
                     <br><br>
                     </div>
                     <div class="clearfix"><br/></div>
@@ -212,7 +181,7 @@
                 <li class="list-group-item" id="2">
                     <div class="col-xs-12 col-sm-3">
                         <br/>
-                        <img style="width: 20%; height: auto; border-radius: 10px" src="../assets/images/cursos/cursos.png"/>
+                        <img style="width: 20%; height: auto; border-radius: 10px" src="../../assets/images/cursos/cursos.png"/>
                     </div>
                     <div class="col-xs-12 col-sm-7">
                     <br>
@@ -224,8 +193,9 @@
                     </div>
                     <div class="col-xs-12 col-sm-2">
                     <br><br>
-                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-search mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
-                    <!-- &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" data-toggle="tooltip" data-placement="top" ><span class="mbri-hearth mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a> -->
+                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-edit2 mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-trash mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+                    
                     <br><br>
                     </div>
                     <div class="clearfix"><br/></div>
@@ -233,7 +203,7 @@
                 <li class="list-group-item" id="1">
                     <div class="col-xs-12 col-sm-3">
                         <br/>
-                        <img style="width: 20%; height: auto; border-radius: 10px" src="../assets/images/cursos/cursos.png"/>
+                        <img style="width: 20%; height: auto; border-radius: 10px" src="../../assets/images/cursos/cursos.png"/>
                     </div>
                     <div class="col-xs-12 col-sm-7">
                     <br>
@@ -245,8 +215,9 @@
                     </div>
                     <div class="col-xs-12 col-sm-2">
                     <br><br>
-                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-search mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
-                    <!-- &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" data-toggle="tooltip" data-placement="top" ><span class="mbri-hearth mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a> -->
+                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-edit2 mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-trash mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+                    
                     <br><br>
                     </div>
                     <div class="clearfix"><br/></div>
@@ -254,7 +225,7 @@
                 <li class="list-group-item" id="1">
                     <div class="col-xs-12 col-sm-3">
                         <br/>
-                        <img style="width: 20%; height: auto; border-radius: 10px" src="../assets/images/cursos/cursos.png"/>
+                        <img style="width: 20%; height: auto; border-radius: 10px" src="../../assets/images/cursos/cursos.png"/>
                     </div>
                     <div class="col-xs-12 col-sm-7">
                     <br>
@@ -266,8 +237,9 @@
                     </div>
                     <div class="col-xs-12 col-sm-2">
                     <br><br>
-                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-search mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
-                    <!-- &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" data-toggle="tooltip" data-placement="top" ><span class="mbri-hearth mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a> -->
+                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-edit2 mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-trash mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+                    
                     <br><br>
                     </div>
                     <div class="clearfix"><br/></div>
@@ -275,7 +247,7 @@
                 <li class="list-group-item" id="1">
                     <div class="col-xs-12 col-sm-3">
                         <br/>
-                        <img style="width: 20%; height: auto; border-radius: 10px" src="../assets/images/cursos/cursos.png"/>
+                        <img style="width: 20%; height: auto; border-radius: 10px" src="../../assets/images/cursos/cursos.png"/>
                     </div>
                     <div class="col-xs-12 col-sm-7">
                     <br>
@@ -287,8 +259,9 @@
                     </div>
                     <div class="col-xs-12 col-sm-2">
                     <br><br>
-                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-search mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
-                    <!-- &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" data-toggle="tooltip" data-placement="top" ><span class="mbri-hearth mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a> -->
+                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-edit2 mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-trash mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+                    
                     <br><br>
                     </div>
                     <div class="clearfix"><br/></div>
@@ -296,7 +269,7 @@
                 <li class="list-group-item" id="1">
                     <div class="col-xs-12 col-sm-3">
                         <br/>
-                        <img style="width: 20%; height: auto; border-radius: 10px" src="../assets/images/cursos/cursos.png"/>
+                        <img style="width: 20%; height: auto; border-radius: 10px" src="../../assets/images/cursos/cursos.png"/>
                     </div>
                     <div class="col-xs-12 col-sm-7">
                     <br>
@@ -308,8 +281,9 @@
                     </div>
                     <div class="col-xs-12 col-sm-2">
                     <br><br>
-                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-search mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
-                    <!-- &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" data-toggle="tooltip" data-placement="top" ><span class="mbri-hearth mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a> -->
+                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-edit2 mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-trash mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+                    
                     <br><br>
                     </div>
                     <div class="clearfix"><br/></div>
@@ -317,7 +291,7 @@
                 <li class="list-group-item" id="1">
                     <div class="col-xs-12 col-sm-3">
                         <br/>
-                        <img style="width: 20%; height: auto; border-radius: 10px" src="../assets/images/cursos/cursos.png"/>
+                        <img style="width: 20%; height: auto; border-radius: 10px" src="../../assets/images/cursos/cursos.png"/>
                     </div>
                     <div class="col-xs-12 col-sm-7">
                     <br>
@@ -329,8 +303,9 @@
                     </div>
                     <div class="col-xs-12 col-sm-2">
                     <br><br>
-                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-search mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
-                    <!-- &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" data-toggle="tooltip" data-placement="top" ><span class="mbri-hearth mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a> -->
+                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-edit2 mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-trash mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+                    
                     <br><br>
                     </div>
                     <div class="clearfix"><br/></div>
@@ -338,7 +313,7 @@
                 <li class="list-group-item" id="1">
                     <div class="col-xs-12 col-sm-3">
                         <br/>
-                        <img style="width: 20%; height: auto; border-radius: 10px" src="../assets/images/cursos/cursos.png"/>
+                        <img style="width: 20%; height: auto; border-radius: 10px" src="../../assets/images/cursos/cursos.png"/>
                     </div>
                     <div class="col-xs-12 col-sm-7">
                     <br>
@@ -350,8 +325,9 @@
                     </div>
                     <div class="col-xs-12 col-sm-2">
                     <br><br>
-                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-search mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
-                    <!-- &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" data-toggle="tooltip" data-placement="top" ><span class="mbri-hearth mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a> -->
+                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-edit2 mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-trash mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+                    
                     <br><br>
                     </div>
                     <div class="clearfix"><br/></div>
@@ -359,7 +335,7 @@
                 <li class="list-group-item" id="1">
                     <div class="col-xs-12 col-sm-3">
                         <br/>
-                        <img style="width: 20%; height: auto; border-radius: 10px" src="../assets/images/cursos/cursos.png"/>
+                        <img style="width: 20%; height: auto; border-radius: 10px" src="../../assets/images/cursos/cursos.png"/>
                     </div>
                     <div class="col-xs-12 col-sm-7">
                     <br>
@@ -371,59 +347,77 @@
                     </div>
                     <div class="col-xs-12 col-sm-2">
                     <br><br>
-                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-search mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
-                    <!-- &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" data-toggle="tooltip" data-placement="top" ><span class="mbri-hearth mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a> -->
+                    <a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-edit2 mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./curso" data-toggle="tooltip" data-placement="top" ><span class="mbri-trash mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span></a>
+                    
                     <br><br>
                     </div>
                     <div class="clearfix"><br/></div>
                 </li>
-        
         </ul>
+        </div>
+        <div id="formWrapper">
+            <form method="post" class="form">
+                <Div class="container">
+                    <h2>Edição de curso</h2>
+                    <label>Título</label>
+                    <input type="text" value="PHP com Mysql" class="form-control" required/>
+                    <br>
+                    <label>Descrição</label>
+                    <input type="text" value="Aprenda a criar aplicações completas, do básico ao avançado com PHP e Mysql." class="form-control" required/>
+                    <br>
+                    <label>Assunto</label>
+                    <select  class="form-control">
+                        <option value="">Escolha um assunto ...</option>
+                        <option value="1" selected>Programação</option>
+                    </select>
+                    <br>
+                    <label class="radio-inline"><input type="radio" name="optradio" checked>Curso público</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">Curso privado</label>
+                    <br><br>
+                    <input type="button" value="Salvar" class="btn btn-primary">
+                </Div>
+                <br>
+            </form>
+        </div>
     </div>
 </div>
 </div>
 
 
-<!-- Modais -->
+    <!-- Modais -->
 
-<div w3-include-html="../assets/includes/modais.html"></div> 
+    <div w3-include-html="../../../assets/includes/Modais.html"></div> 
 
-    <!-- Fim do corpo -->    
+    <!-- Rodape -->
 
-<div w3-include-html="../assets/includes/foot.html"></div> 
-
-
-    <div id="toast"></div>
-
-    <footer class="mbr-small-footer mbr-section mbr-section-nopadding" id="footer2-p" style="background-color: rgba(51, 50, 50, 0.95);; padding-top: 0.875rem; padding-bottom: 0.875rem;">
-
-        <div class="container">
-            <p style="text-align: center;margin: auto;padding: 0;color: #acacac;">Desenvolvido por <a target="_blank" href="#" style="color:#f76f3e;text-decoration:none;">TeamPuc</a></p>
-        </div>
-    </footer>
+    <div w3-include-html="../../../../assets/includes/foot.html"></div> 
 
     <!-- FIM RODAPÉ -->
 
 
-    <script src="../assets/web/assets/jquery/jquery.min.js"></script>
-    <script src="../assets/popper/popper.min.js"></script>
-    <script src="../assets/tether/tether.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../assets/smoothscroll/smooth-scroll.js"></script>
-    <script src="../assets/dropdown/js/script.min.js"></script>
-    <script src="../assets/touchswipe/jquery.touch-swipe.min.js"></script>
-    <script src="../assets/viewportchecker/jquery.viewportchecker.js"></script>
-    <script src="../assets/ytplayer/jquery.mb.ytplayer.min.js"></script>
-    <script src="../assets/vimeoplayer/jquery.mb.vimeo_player.js"></script>
-    <script src="../assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js"></script>
-    <script src="../assets/mbr-clients-slider/mbr-clients-slider.js"></script>
-    <script src="../assets/theme/js/script.js"></script>
-    <script src="../assets/slidervideo/script.js"></script>
-    <script src="../assets/formoid/formoid.min.js"></script>
+    <script src="../../assets/web/assets/jquery/jquery.min.js"></script>
+    <script src="../../assets/popper/popper.min.js"></script>
+    <script src="../../assets/tether/tether.min.js"></script>
+    <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../assets/smoothscroll/smooth-scroll.js"></script>
+    <script src="../../assets/dropdown/js/script.min.js"></script>
+    <script src="../../assets/touchswipe/jquery.touch-swipe.min.js"></script>
+    <script src="../../assets/viewportchecker/jquery.viewportchecker.js"></script>
+    <script src="../../assets/ytplayer/jquery.mb.ytplayer.min.js"></script>
+    <script src="../../assets/vimeoplayer/jquery.mb.vimeo_player.js"></script>
+    <script src="../../assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js"></script>
+    <script src="../../assets/mbr-clients-slider/mbr-clients-slider.js"></script>
+    <script src="../../assets/theme/js/script.js"></script>
+    <script src="../../assets/slidervideo/script.js"></script>
+    <script src="../../assets/formoid/formoid.min.js"></script>
 
     <script type="text/javascript">
-        $( "#cursoSearch" ).keyup(function() {
-            var actualInput = $( "#cursoSearch" ).val();
+
+    var aulasAdded = 1;
+
+        $( "#cursoedit2" ).keyup(function() {
+            var actualInput = $( "#cursoedit2" ).val();
 
             $(".cursoName").each(function(){
                 var actualName = $(this).text();
@@ -436,78 +430,40 @@
             })
         });
 
-    $(document).ready(function(){
-        userAtual = localStorage.getItem("username");
-        $("#usuarioAtual").text(userAtual);
-    })
+        $("#exibeCursoButton").click(function(){
+            $("#listaCursos").addClass("hidden");
+            $("#formWrapper").removeClass("hidden");
+        })
 
-    function startToast(msg) {
-			var x = document.getElementById("toast");
-			x.className = "show";
-			$("#toast").text(msg);
-			setTimeout(function(){ x.className = x.className.replace("show", ""); }, 6000);
-	}
-    $(".mbr-iconfont-btn").click(function(){
-        startToast("Favorito adicionado com sucesso!");
-    })
-    $("#cadastroButton").click(function(){
-        startToast("Assunto cadastrado com sucesso!");
-    })
+        $("#novaAulaButton").click(function(){
+            aulasAdded ++;
+            $("#criacaoAulas").append(
+                "<div id=' + 'aula'" + aulasAdded + "'Content class='aulaContent'>" +
+                                    "<label><h4>Aula" + aulasAdded + "</h4></label><br>" +
+                                    "<label>Título</label>" +
+                                    "<input type='text' class='form-control' required/><br>" +
+                                    "<label>Descrição</label>" + 
+                                    "<input type='text' class='form-control' required/><br>" + 
+                                    "<input type='button' value='Salvar para envio' class='btn btn-primary'><br><br></div>"
+            )
+        })  
+            
+        $(document).ready(function(){
+            userAtual = localStorage.getItem("username");
+            $("#usuarioAtual").text(userAtual);
+        })
+
     </script>
-
-<script type="text/javascript">
-
-    $("#assuntoCadastro").keyup(function(){
-        var assunto = $("#assuntoCadastro").val();
-        localStorage.setItem("assuntoCadastro", assunto);
-    }) 
-
-    $("#assuntoPesquisa").keyup(function(){
-        var pesquisa = $("#assuntoPesquisa").val();
-        localStorage.setItem("cursoSearch", pesquisa);
-    }) 
-
-    $("#assuntoPesquisa").click(function(){
-        $("#cursoSearch").val(localStorage.getItem("cursoSearch"));
-
-    })
-
-    $(document).ready(function(){
-        $("#cursoSearch").val(localStorage.getItem("cursoSearch"));
-        $("#cursoSearch").keyup();
-        localStorage.setItem("cursoSearch", "");
-    })
-    
-    $(document).ready(function(){
-        if(localStorage.getItem("assuntoCadastro") != null){
-            startToast("Curso adicionado com sucesso!");
-        }
-    })
-    $("#searchUsers2Button").click(function(){
-        $("#emailConta").val($("#usuarioContaSearchField").val()+"@gmail.com");
-        $("#userConta2").val($("#usuarioContaSearchField").val());        
-        $("#listaUsuariosConta").removeClass("hidden");
         
-    })
+    <script src="../../../assets/studia/includeFiles.js"></script>
 
-    $("#searchUsersButton").click(function(){
-        $("#userConta").val($("#usuarioSearchField").val());        
-        $("#listaUsuarios").removeClass("hidden");
-        
-    })
-    
-</script>
-
-<script src="../assets/studia/includeFiles.js"></script>
-
-<script>
-    includeHTML();
-</script> 
-
-
+    <script>
+        includeHTML();
+    </script> 
 
 
     <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i></i></a></div>
     <input name="animation" type="hidden">
 </body>
 </html>
+
