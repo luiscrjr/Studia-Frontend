@@ -188,6 +188,11 @@
             overflow-x: hidden    
         }
 
+        a.disabled {
+            color: gray !important;
+            pointer-events: none;
+            }
+
     </style>
   
 </head>
@@ -232,6 +237,8 @@
                 <li class="list-group-item" id="content7"> <a href="#"> Reforço de conteúdo</a></li>
                 <li class="list-group-item" id="content8"> <a href="#"> Tópico de encerramento</a></li>
             </ul>
+            
+            &nbsp;&nbsp;&nbsp;<a class="concluirConteudo">Concluir conteúdo</a>
             <br><br>
             <a style="color:blue">&nbsp;&nbsp;&nbsp;Próxima aula &nbsp;&nbsp;&nbsp;<span class="mbri-right mbr-iconfont mbr-iconfont-btn"></span></a>
             </div>
@@ -320,7 +327,7 @@
             </div>
             <div class="col-md-1">
                 <div class="utilIcons">
-                    &nbsp; <a class="inutil"><span class="mbri-sad-face mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span>
+                    &nbsp; <a class="inutil disabled" ><span disabled class="mbri-sad-face mbr-iconfont mbr-iconfont-btn" style="font-size:30px;"></span>
                                 <br>
                                 <span>Não útil</span>
                             </a>
@@ -337,10 +344,11 @@
                     
                 </div>
             </div>
+            
         </div>  
 
         <!-- Fim conteudo aula -->
-
+        
     </div>
 </div>
 </div>
@@ -438,6 +446,10 @@
         $(".inutil").click(function(){
             startToast("Essa pergunta foi marcada como não útil!");
         })
+        $(".concluirConteudo").click(function(){
+            startToast("Aula concluída.");
+        })
+
 
     </script>
 
