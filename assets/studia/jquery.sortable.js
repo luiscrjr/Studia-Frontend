@@ -49,6 +49,7 @@ $.fn.sortable = function(options) {
 				items.parent().trigger('sortupdate', {item: dragging});
 			}
 			dragging = null;
+			reordenaAulas();
 		}).not('a[href], img').on('selectstart.h5s', function() {
 			this.dragDrop && this.dragDrop();
 			return false;

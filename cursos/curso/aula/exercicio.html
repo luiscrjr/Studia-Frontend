@@ -1,0 +1,403 @@
+﻿<!DOCTYPE html>
+<html >
+<head>
+  <!-- Site made with prime Website Builder v4.7.2, https://prime.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="../../../assets/images/favicon-85x100-1.png" type="image/x-icon">
+  <meta name="description" content="Web Builder Description">
+  <title>StudiaTech - Aula</title>
+  <link rel="stylesheet" href="../../../assets/web/assets/prime-icons/prime-icons.css">
+  <link rel="stylesheet" href="../../../assets/tether/tether.min.css">
+  <link rel="stylesheet" href="../../../assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="../../../assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="../../../assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="../../../assets/animatecss/animate.min.css">
+  <link rel="stylesheet" href="../../../assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="../../../assets/theme/css/style.css">
+  <link rel="stylesheet" href="../../../assets/prime/css/mbr-additional.css" type="text/css">
+  
+  <link rel="stylesheet" type="text/css" href="../../../assets/prime/css/3.3.7.bootstrap.min.css">
+  <!--<link rel="stylesheet" type="text/css" href="assets/prime/css/font-awesome.min.css">-->
+  <link rel="stylesheet" type="text/css" href="../../../assets/web-fonts-with-css/css/fontawesome-all.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <style type="text/css">
+
+        .slider-item{
+            border: 1px solid #E1E1E1;
+            border-radius: 5px;
+            background: #FFF;
+        }
+        /*
+        .img-responsive{
+            border-radius: 5px 5px 0px 0px;
+        }*/
+
+        .slider-item .slider-image img{
+            margin: 0 auto;
+            width: 100%;
+        }
+        .slider-item .slider-main-detail{
+            padding: 10px;
+            border-radius: 0 0 5px 5px;
+        }
+        .slider-item:hover .slider-main-detail{
+            /*background-color: #dbeeee !important;*/
+            background-color: #FFF !important;
+        }
+        .slider-item .price{
+            float: left;
+            margin-top: 5px;
+        }
+        .slider-item .price h5{
+            line-height: 20px;
+            margin: 0;
+        }
+        .detail-price{
+            color: #212529;
+            font-family: 'Fira Sans', sans-serif;
+        }
+        .slider-item .slider-main-detail .rating{
+            color: #777;
+        }
+        .slider-item .rating{
+            float: left;
+            font-size: 17px;
+            text-align: right;
+            line-height: 52px;
+            margin-bottom: 10px;
+            height: 52px;
+        }
+        .slider-item .btn-add{
+            width: 50%;
+            float: left;
+            border-right: 1px solid #E1E1E1;
+        }
+        .slider-item .btn-details{
+            width: 50%;
+            float: left;
+        }
+        .controls{
+            margin-top: 20px;
+        }
+        .btn-info,.btn-info:visited{
+            background-color: #ff370f !important;
+            border-color: #ff370f !important;
+        }
+        .btn-info{
+            margin-left:5px;
+        }
+        .btn-info:hover{
+            background-color: #FF530D !important;
+            border-color: #FF530D !important;
+        }
+
+        .slider-main-detail:hover{
+            background-color: #dbeeee !important;
+        }
+
+        .AddCart{
+            margin: 0px;
+            padding:5px;
+            border-radius:22px;
+            margin-right:10px;
+            width: 100%;
+        }
+        .review {
+            margin-bottom: 5px;
+            padding-top:5px;
+        }        
+
+        .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover
+        {
+            background-color: #55b4d4 !important;
+            border-color: #55b4d4 !important;
+        }
+        .list-group-item.active > a
+        {
+            color: #fff !important;
+        }
+        a{
+            color:blue !important;
+        }
+        .title {
+            font-size: 14px;
+            font-weight:bold;
+        }
+        .komen {
+            font-size:14px;
+            margin-top:5px;
+
+        }
+        .geser {
+            margin-left:55px;
+            margin-top:15px;
+        }
+        .askIcons{
+            font-size: 18px !important;
+        }
+        .utilIcons{
+            padding-top:3px;
+        }
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            font-size: 17px;
+        }
+        #toast.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 5.5s;
+            animation: fadein 0.5s, fadeout 0.5s 5.5s;
+        }
+
+        @-webkit-keyframes fadein {
+            from {bottom: 0; opacity: 0;} 
+            to {bottom: 30px; opacity: 1;}
+        }
+
+        @keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 30px; opacity: 1;}
+        }
+
+        @-webkit-keyframes fadeout {
+            from {bottom: 30px; opacity: 1;} 
+            to {bottom: 0; opacity: 0;}
+        }
+
+        @keyframes fadeout {
+            from {bottom: 30px; opacity: 1;}
+            to {bottom: 0; opacity: 0;}
+        }
+        .files input {
+            outline: 2px dashed #92b0b3;
+            outline-offset: -10px;
+            -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+            transition: outline-offset .15s ease-in-out, background-color .15s linear;
+            padding: 120px 0px 85px 35%;
+            text-align: center !important;
+            margin: 0;
+            width: 100% !important;
+        }
+        .files input:focus{     outline: 2px dashed #92b0b3;  outline-offset: -10px;
+            -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+            transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+        }
+        .files{ position:relative}
+        .files:after {  pointer-events: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 50px;
+            right: 0;
+            height: 56px;
+            content: "";
+            background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png);
+            display: block;
+            margin: 0 auto;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        .color input{ background-color:#f1f1f1;}
+        .files:before {
+            position: absolute;
+            bottom: 10px;
+            left: 0;  pointer-events: none;
+            width: 100%;
+            right: 0;
+            height: 100px;
+            content: " ou arraste e solte aqui. ";
+            display: block;
+            margin: 0 auto;
+            color: #2ea591;
+            font-weight: 600;
+            text-transform: capitalize;
+            text-align: center;
+        }
+
+    </style>
+  
+</head>
+<body>
+
+   <!-- MENU -->
+   <div w3-include-html="../../../../assets/includes/menu.html"></div> 
+
+    </section>
+    <!-- MENU -->
+    <!-- Corpo -->
+    <br><br><br><br>
+    <div class="panel panel-default">
+        <div class="panel-heading c-list">
+            <div class="row">
+                <div class="col-sm-3">
+                    <span class="title"><h3>Php com Mysql - Aula 1</h3></span>
+                </div>
+                <div class="col-sm-7 col-offset-5">
+                    <input type="button" class="btn btn-primary" value="Adicionar Material" onclick="">
+                    <input type="button" class="btn btn-primary" value="Adicionar Video" onclick="">
+                    <input type="button" class="btn btn-primary" value="Adicionar Exercício" onclick="">
+                </div>
+            </div>
+        </div>                
+        <div class="row" style="display: none;">
+            <div class="col-xs-12">
+                <div class="input-group c-search">
+                    <input type="text" class="form-control" id="contact-list-search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search text-muted"></span></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Inicio conteudo aula -->
+
+        <div class="container" style="margin-top:40px; margin-left:0px;">
+            <div class="col-md-3">
+            <ul class="list-group" style="color:black !important" id="mainPanel">
+                <li class="list-group-item" id="content1"> <a href="#">Conteúdo</a></li>
+                <li class="list-group-item" id="content2"> <a href="#">Conteúdo</a></li>
+            </ul>
+            </div>
+            <div class="col-md-9"> 
+                <div class="right-content-bg">
+                    <form method="post" class="form">
+                        <Div class="container">
+                            <h2>Adicionar exercício</h2>
+                            <br>
+                            <label>Descrição</label>
+                            <br>
+                            <textarea class="form-control col-md-10" required></textarea>
+                            <br><br><br><br><br><br>
+                            <label class="radio-inline"><input type="radio" name="optradio" checked>Exercício público</label>
+                            <label class="radio-inline"><input type="radio" name="optradio">Exercício privado</label>
+                            <br><br>
+                            <input type="button" value="Salvar" class="btn btn-primary">
+                        </Div>
+                        <br>
+                    </form>
+                    <br><br><br>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>  
+
+        <!-- Fim conteudo aula -->
+
+    </div>
+</div>
+</div>
+
+    <!-- Fim do corpo -->  
+
+     <!-- Modais -->
+
+     <div w3-include-html="../../../../assets/includes/modais.html"></div> 
+
+     <!-- Foot -->    
+     
+     <div w3-include-html="../../../../assets/includes/foot.html"></div> 
+         
+ 
+
+    <div id="toast"></div>
+
+    <footer class="mbr-small-footer mbr-section mbr-section-nopadding" id="footer2-p" style="background-color: rgba(51, 50, 50, 0.95);; padding-top: 0.875rem; padding-bottom: 0.875rem;">
+
+        <div class="container">
+            <p style="text-align: center;margin: auto;padding: 0;color: #acacac;">Desenvolvido por <a target="_blank" href="#" style="color:#f76f3e;text-decoration:none;">TeamPuc</a></p>
+        </div>
+    </footer>
+
+    <!-- FIM RODAPÉ -->
+
+
+    <script src="../../../assets/web/assets/jquery/jquery.min.js"></script>
+    <script src="../../../assets/popper/popper.min.js"></script>
+    <script src="../../../assets/tether/tether.min.js"></script>
+    <script src="../../../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../assets/smoothscroll/smooth-scroll.js"></script>
+    <script src="../../../assets/dropdown/js/script.min.js"></script>
+    <script src="../../../assets/touchswipe/jquery.touch-swipe.min.js"></script>
+    <script src="../../../assets/viewportchecker/jquery.viewportchecker.js"></script>
+    <script src="../../../assets/ytplayer/jquery.mb.ytplayer.min.js"></script>
+    <script src="../../../assets/vimeoplayer/jquery.mb.vimeo_player.js"></script>
+    <script src="../../../assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js"></script>
+    <script src="../../../assets/mbr-clients-slider/mbr-clients-slider.js"></script>
+    <script src="../../../assets/theme/js/script.js"></script>
+    <script src="../../../assets/slidervideo/script.js"></script>
+    <script src="../../../assets/formoid/formoid.min.js"></script>
+
+    <script type="text/javascript">
+
+        var ultimoConteudoAssistido = "content" + (Math.floor(Math.random() * 8) + 1);    
+        var divGenericaNovaPergunta = "<div class='novaPergunta'><br><input type='text' class='form-control' " + 
+                                    "style='width:500px;' placeholder='Digite aqui a sua pergunta'><input type='button' " +
+                                    "class='btn btn-primary' value='Enviar'><br><br></div>"
+
+        var simuladorDeResponseAPI = {
+                content1 : "<iframe src='https://player.vimeo.com/video/8802569' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
+                content2 : "Texto de exemplo para ilustar o conteúdo 2",
+                content3 : "Texto diferente relacionado ao conteúdo 3",
+                content4 : "<iframe src='https://player.vimeo.com/video/8828611' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
+                content5 : "Texto explicativo um pouco diferente relacionaod ao contentudo 5",
+                content6 : "<iframe src='https://player.vimeo.com/video/8922135' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
+                content7 : "Reforço de conteúdo no item 7 para apoiar o item anterior",
+                content8 : "Oitavo item contendo o encerramento",
+            }
+
+        function setUltimoConteudoAssistido(param){
+            ultimoConteudoAssistido = param;
+        }
+
+        $( document ).ready(function() {
+            userAtual = localStorage.getItem("username");
+            $("#usuarioAtual").text(userAtual);
+
+            $("#" + ultimoConteudoAssistido).trigger('click');
+        });
+
+        $(".list-group-item").click(function(){
+            $("#"+ultimoConteudoAssistido).removeClass( "list-group-item active" );
+            $("#"+ultimoConteudoAssistido).addClass( "list-group-item" );
+            $(this).removeClass( "list-group-item" );
+            $(this).addClass( "list-group-item active" );
+            setUltimoConteudoAssistido(this.id);
+            $("#conteudoAula").html(simuladorDeResponseAPI[ultimoConteudoAssistido]);
+        })
+
+        function startToast(msg) {
+			var x = document.getElementById("toast");
+			x.className = "show";
+			$("#toast").text(msg);
+			setTimeout(function(){ x.className = x.className.replace("show", ""); }, 6000);
+        }
+
+    </script>
+
+     <script src="../../../../assets/studia/includeFiles.js"></script>
+
+    <script>
+        includeHTML();
+    </script> 
+
+    <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i></i></a></div>
+    <input name="animation" type="hidden">
+</body>
+</html>

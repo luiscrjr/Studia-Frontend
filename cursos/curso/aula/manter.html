@@ -290,12 +290,145 @@
                                           <form method="post" action="#" id="#">
                                               <div class="form-group files color">
                                                 <label>Faça upload do seu arquivo </label>
-                                                <input type="file" class="form-control" multiple="">
+                                                <input type="file" id="upload" class="form-control" multiple="">
                                               </div>
                                           </form>
                                       </div>
                                     </div>
                                 </div>
+                                <div id="videoTeste" class="hidden">
+                                </div>
+
+                               
+                                <script>
+
+ 
+// $("#upload").change(function(event) {
+    
+//     let fileInput = $(this);
+//     let validos = /(\.mp4)$/i;
+
+//     console.log(validaFormato(fileInput, validos));
+//     console.log(validaDuracao(event));
+
+// });
+
+
+ $('#upload').change( function(event) {
+
+     let fileInput = $(this);
+     let validos = /(\.mp4)$/i;
+
+     if(!validaFormato(fileInput, validos)){
+         console.log("Formato inválido");
+     }
+     else{
+
+     //criando URL temporária do video
+     var tmppath = URL.createObjectURL(event.target.files[0]);
+    
+     //Criando tag video com url temporária
+     var novoVideo = "<video id='fakeVideo' width='400' controls> <source id='virtualVideo' " +
+                     " src=" + tmppath + " type='video/mp4'></video><div id='meta'></div>"
+
+     $("#videoTeste").append(novoVideo);
+
+       var myVideoPlayer = document.getElementById('fakeVideo'),
+             meta = document.getElementById('meta');
+
+         myVideoPlayer.addEventListener('loadedmetadata', function () {
+             var duration = myVideoPlayer.duration;
+
+             console.log(duration);
+
+             if(duration > 180 && duration < 1200){
+                 console.log("Tamanho e formato aceitos");
+                 $("#videoTeste").empty();
+                 $("#upload").val("");
+             }else{
+                console.log("Duração do vídeo inválida");
+                $("#videoTeste").empty();
+                $("#upload").val("");
+             }
+             
+
+         });
+
+     }
+ });
+
+function validaFormato(fileInput, validos){
+
+    let nome = fileInput.get(0).files["0"].name;
+    if (validos.test(nome)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//     function validaDuracao(event){
+
+//         isRightTime = 0;
+
+//         //criando URL temporária do video
+//         var tmppath = URL.createObjectURL(event.target.files[0]);
+
+//         //Criando tag video com url temporária
+//         var novoVideo = "<video id='fakeVideo' width='400' controls> <source id='virtualVideo' " +
+//                         " src=" + tmppath + " type='video/mp4'></video><div id='meta'></div>"
+
+//         $("#videoTeste").append(novoVideo);
+
+//         var myVideoPlayer = document.getElementById('fakeVideo'),
+//                 meta = document.getElementById('meta');
+
+//             myVideoPlayer.addEventListener('loadedmetadata', function () {
+//                 var duration = myVideoPlayer.duration;
+
+//                 if(duration > 5 && duration <= 20){
+//                     isRightTime = duration;
+//                 }
+
+//                 isRightTime = duration;
+
+//             });
+
+//             return isRightTime
+
+// }
+
+
+
+                                        // $('#i_video').change( function(event) {
+
+                                        //     isRightTime = False;
+
+                                        //     //criando URL temporária do video
+                                        //     var tmppath = URL.createObjectURL(event.target.files[0]);
+                                            
+                                        //     //Criando tag video com url temporária
+                                        //     var novoVideo = "<video id='fakeVideo' width='400' controls> <source id='virtualVideo' " +
+                                        //                     " src=" + tmppath + " type='video/mp4'></video><div id='meta'></div>"
+
+                                        //     $("#videoTeste").append(novoVideo);
+
+                                        //       var myVideoPlayer = document.getElementById('fakeVideo'),
+                                        //             meta = document.getElementById('meta');
+
+                                        //         myVideoPlayer.addEventListener('loadedmetadata', function () {
+                                        //             var duration = myVideoPlayer.duration;
+
+                                        //             if(duration > 5 && duration <= 20){
+                                        //                 isRightTime = True;
+                                        //             }
+
+                                        //         });
+
+                                    
+                                        // });
+                                    </script>
+                       
                     </div>
                     <br><br><br>
                 </div>
@@ -352,41 +485,50 @@
 
     <script type="text/javascript">
 
-        var ultimoConteudoAssistido = "content" + (Math.floor(Math.random() * 8) + 1);    
-        var divGenericaNovaPergunta = "<div class='novaPergunta'><br><input type='text' class='form-control' " + 
-                                    "style='width:500px;' placeholder='Digite aqui a sua pergunta'><input type='button' " +
-                                    "class='btn btn-primary' value='Enviar'><br><br></div>"
+        // var ultimoConteudoAssistido = "content" + (Math.floor(Math.random() * 8) + 1);    
+        // var divGenericaNovaPergunta = "<div class='novaPergunta'><br><input type='text' class='form-control' " + 
+        //                             "style='width:500px;' placeholder='Digite aqui a sua pergunta'><input type='button' " +
+        //                             "class='btn btn-primary' value='Enviar'><br><br></div>"
 
-        var simuladorDeResponseAPI = {
-                content1 : "<iframe src='https://player.vimeo.com/video/8802569' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
-                content2 : "Texto de exemplo para ilustar o conteúdo 2",
-                content3 : "Texto diferente relacionado ao conteúdo 3",
-                content4 : "<iframe src='https://player.vimeo.com/video/8828611' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
-                content5 : "Texto explicativo um pouco diferente relacionaod ao contentudo 5",
-                content6 : "<iframe src='https://player.vimeo.com/video/8922135' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
-                content7 : "Reforço de conteúdo no item 7 para apoiar o item anterior",
-                content8 : "Oitavo item contendo o encerramento",
-            }
+        // var simuladorDeResponseAPI = {
+        //         content1 : "<iframe src='https://player.vimeo.com/video/8802569' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
+        //         content2 : "Texto de exemplo para ilustar o conteúdo 2",
+        //         content3 : "Texto diferente relacionado ao conteúdo 3",
+        //         content4 : "<iframe src='https://player.vimeo.com/video/8828611' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
+        //         content5 : "Texto explicativo um pouco diferente relacionaod ao contentudo 5",
+        //         content6 : "<iframe src='https://player.vimeo.com/video/8922135' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
+        //         content7 : "Reforço de conteúdo no item 7 para apoiar o item anterior",
+        //         content8 : "Oitavo item contendo o encerramento",
+        //     }
 
-        function setUltimoConteudoAssistido(param){
-            ultimoConteudoAssistido = param;
-        }
+        // function setUltimoConteudoAssistido(param){
+        //     ultimoConteudoAssistido = param;
+        // }
 
         $( document ).ready(function() {
             userAtual = localStorage.getItem("username");
             $("#usuarioAtual").text(userAtual);
 
-            $("#" + ultimoConteudoAssistido).trigger('click');
+            // $("#" + ultimoConteudoAssistido).trigger('click');
+
+                // var myVideoPlayer = document.getElementById('video_player'),
+                //     meta = document.getElementById('meta');
+
+                // myVideoPlayer.addEventListener('loadedmetadata', function () {
+                //     var duration = myVideoPlayer.duration;
+                //     meta.innerHTML = "Duration is " + duration.toFixed(2) + " seconds.";
+                //     console.log("Duration is " + duration.toFixed(2) + " seconds.");
+                // });
         });
 
-        $(".list-group-item").click(function(){
-            $("#"+ultimoConteudoAssistido).removeClass( "list-group-item active" );
-            $("#"+ultimoConteudoAssistido).addClass( "list-group-item" );
-            $(this).removeClass( "list-group-item" );
-            $(this).addClass( "list-group-item active" );
-            setUltimoConteudoAssistido(this.id);
-            $("#conteudoAula").html(simuladorDeResponseAPI[ultimoConteudoAssistido]);
-        })
+        // $(".list-group-item").click(function(){
+        //     $("#"+ultimoConteudoAssistido).removeClass( "list-group-item active" );
+        //     $("#"+ultimoConteudoAssistido).addClass( "list-group-item" );
+        //     $(this).removeClass( "list-group-item" );
+        //     $(this).addClass( "list-group-item active" );
+        //     setUltimoConteudoAssistido(this.id);
+        //     $("#conteudoAula").html(simuladorDeResponseAPI[ultimoConteudoAssistido]);
+        // })
 
         function startToast(msg) {
 			var x = document.getElementById("toast");
@@ -395,12 +537,29 @@
 			setTimeout(function(){ x.className = x.className.replace("show", ""); }, 6000);
         }
 
+        // let validos = /(\.mp4)$/i;
+
+        // $("#upload").change(function() {
+
+        // let fileInput = $(this);
+
+        // console.log(fileInput.get(0).files[0].size);
+
+        // let nome = fileInput.get(0).files["0"].name;
+        // if (validos.test(nome)) {
+        //     console.log("Válido")
+        // } else {
+        //     console.log("Inválido")
+        // }
+        // });
+
     </script>
 
      <script src="../../../../assets/studia/includeFiles.js"></script>
 
     <script>
         includeHTML();
+       
     </script> 
 
     <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i></i></a></div>
