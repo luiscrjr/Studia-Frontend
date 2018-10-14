@@ -253,9 +253,9 @@
 
                         <!-- Conteúdo perguntas -->
 
-                        <!--
-                        <input type="text" class="form-control" placeholder="Digite aqui a sua pergunta">
-                        <input type="button" class="btn btn-primary" value="Enviar" onclick="">
+                        
+                        <input type="text" class="form-control" required placeholder="Digite aqui a sua pergunta">
+                        <input type="button" class="btn btn-primary enviaPergunta" value="Enviar" onclick="">
                          <br><br>
                         <div class="container">
                             <div class="row">
@@ -322,7 +322,7 @@
                                    </div>
                                    </div>
                             </div>
-                            </div> -->
+                            </div>
                     </div>
             </div>
             <div class="col-md-1">
@@ -448,6 +448,9 @@
         })
         $(".concluirConteudo").click(function(){
             startToast("Aula concluída.");
+        })
+        $(".enviaPergunta").click(function(){
+            startToast("Pergunta enviada para aprovação.");
         })
 
 
